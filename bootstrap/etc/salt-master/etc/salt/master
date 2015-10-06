@@ -1,2 +1,9 @@
 fileserver_backend:
   - roots
+  - git
+
+gitfs_provider: pygit2
+
+gitfs_remotes:
+  - git://github.com/saltstack-formulas/jenkins-formula
+  - git://github.com/saltstack-formulas/salt-formula
