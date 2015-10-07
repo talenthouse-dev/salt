@@ -17,6 +17,16 @@ jenkins:
         - sbt
         - slack
         - ws-cleanup
+      disabled:
+        - ant
+        - cvs
+        - javadoc
+        - maven-plugin
+        - pam-auth
+        - ssh-slaves
+        - subversion
+        - translation
+        - windows-slaves
 
   nginx:
     lookup:
