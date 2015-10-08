@@ -2,6 +2,8 @@ jenkins:
   lookup:
     user: jenkins
     group: jenkins
+    nginx_user: nginx
+    nginx_group: nginx
     pkgs:
       - java-1.8.0-openjdk
 
