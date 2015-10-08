@@ -16,4 +16,5 @@ salt:
 
     gitfs_remotes:
       - git://github.com/saltstack-formulas/jenkins-formula
-      - git://github.com/saltstack-formulas/salt-formula
+      - git://github.com/blast-hardcheese/salt-formula:
+        - base: bugfix/178_master-configs-in-minion
