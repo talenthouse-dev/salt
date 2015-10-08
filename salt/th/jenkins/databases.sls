@@ -7,6 +7,13 @@ test-packages:
       - postgresql
     - require:
       - pkg: test-packages
+      - cmd: pg-initdb
+
+pg-initdb:
+  cmd.wait:
+    - name: service postgresql initdb
+    - watch:
+      - pkg: test-packages
 
 jenkins-postgres:
   postgres_user.present:
