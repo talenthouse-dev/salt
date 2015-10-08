@@ -1,2 +1,5 @@
+# Extra repositories should go in /srv/extra/
+extra/
+
 # Swapfiles
 .*.sw*
