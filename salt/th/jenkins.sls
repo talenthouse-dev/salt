@@ -14,11 +14,6 @@ oldjava:
       - service: jenkins
 
 sbt:
-  pkgrepo.absent:
-    - name: bintray--sbt-rpm
-
-  pkg.purged: []
-
   archive.extracted:
     - name: /var/lib/jenkins/.bin
     - source: https://dl.bintray.com/sbt/native-packages/sbt/{{ sbt_version }}/sbt-{{ sbt_version }}.tgz
