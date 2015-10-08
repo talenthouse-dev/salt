@@ -9,3 +9,4 @@ base:
     - jenkins
     - nginx
     - jenkins.nginx
+    - jenkins.plugins
