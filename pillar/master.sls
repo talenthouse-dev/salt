@@ -16,7 +16,7 @@ salt:
 
     gitfs_remotes:
       - git://github.com/blast-hardcheese/jenkins-formula:
-        - base: jenkins_plugins
+        - base: merged
       - git://github.com/saltstack-formulas/nginx-formula
       - git://github.com/blast-hardcheese/salt-formula:
         - base: bugfix/178_master-configs-in-minion
