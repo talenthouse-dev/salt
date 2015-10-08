@@ -33,3 +33,5 @@ th-jenkins:
     - target: /srv/extra/jenkins
     - user: root
     - identity: /var/lib/jenkins/.ssh/id_rsa
+    # Workaround for saltstack/salt#27487
+    - force_reset: True
