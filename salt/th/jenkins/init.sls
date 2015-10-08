@@ -2,6 +2,7 @@
 
 include:
   - jenkins
+  - th.jenkins.databases
 
 oldjava:
   pkg.purged:
