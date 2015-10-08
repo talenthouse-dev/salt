@@ -1,3 +1,10 @@
+pg_hba:
+  file.managed:
+    - name: /var/lib/pgsql/data/pg_hba.conf
+    - source: salt://th/jenkins/files/var/lib/pgsql/data/pg_hba.conf
+    - user: postgres
+    - group: postgres
+
 test-packages:
   pkg.installed:
     - names:
@@ -8,6 +15,9 @@ test-packages:
     - require:
       - pkg: test-packages
       - cmd: pg-initdb
+      - file: pg_hba
+    - watch:
+      - file: pg_hba
 
 pg-initdb:
   cmd.wait:
