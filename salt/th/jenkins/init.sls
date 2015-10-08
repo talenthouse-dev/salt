@@ -26,3 +26,10 @@ sbt:
     - tar_options: z
     - user: jenkins
     - group: jenkins
+
+th-jenkins:
+  git.latest:
+    - name: git@github.com:talenthouse-dev/th-jenkins.git
+    - target: /srv/extra/jenkins
+    - user: root
+    - identity: /var/lib/jenkins/.ssh/id_rsa
