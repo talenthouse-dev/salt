@@ -1,3 +1,5 @@
+{% set sbt_version = "0.13.9" %}
+
 include:
   - jenkins
 
@@ -12,12 +14,16 @@ oldjava:
       - service: jenkins
 
 sbt:
-  pkgrepo.managed:
+  pkgrepo.absent:
     - name: bintray--sbt-rpm
-    - humanname: bintray--sbt-rpm
-    - baseurl: http://dl.bintray.com/sbt/rpm
-    - gpgcheck: 0
 
-  pkg.installed:
-    - required:
-      - pkgrepo: sbt
+  pkg.purged: []
+
+  archive.extracted:
+    - name: /var/lib/jenkins/.bin
+    - source: https://dl.bintray.com/sbt/native-packages/sbt/{{ sbt_version }}/sbt-{{ sbt_version }}.tgz
+    - source_hash: https://dl.bintray.com/sbt/native-packages/sbt/{{ sbt_version }}/sbt-{{ sbt_version }}.tgz.md5
+    - archive_format: tar
+    - tar_options: z
+    - user: jenkins
+    - group: jenkins
