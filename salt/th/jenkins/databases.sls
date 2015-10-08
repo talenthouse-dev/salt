@@ -2,6 +2,11 @@ test-packages:
   pkg.installed:
     - names:
       - postgresql-server
+  service.running:
+    - names:
+      - postgresql
+    - require:
+      - pkg: test-packages
 
 jenkins-postgres:
   postgres_user.present:
