@@ -35,7 +35,18 @@ pg_hba:
 old-test-packages:
   pkg.purged:
     - names:
+      - postgresql
+      - postgresql-libs
       - postgresql-server
+
+psql-bin:
+  alternatives.install:
+    - name: psql
+    - link: /usr/bin/psql
+    - path: /usr/pgsql-9.4/bin/psql
+    - priority: 100
+    - require:
+      - pkg: test-packages
 
 test-packages:
   pkg.installed:
@@ -67,6 +78,8 @@ jenkins-postgres:
     # Permissions
     - createdb: True
     - login: True
+    - require:
+      - alternatives: psql-bin
 
 pg-talenthouse:
   postgres_database.present:
@@ -75,6 +88,7 @@ pg-talenthouse:
     - owner_recurse: True
     - require:
       - postgres_user: jenkins
+      - alternatives: psql-bin
 
 pg-talenthouse-artfeed:
   postgres_database.present:
@@ -83,9 +97,14 @@ pg-talenthouse-artfeed:
     - owner_recurse: True
     - require:
       - postgres_user: jenkins
+      - alternatives: psql-bin
 
 uuid-ossp:
-  postgres_extension.present
+  postgres_extension.present:
+    - require:
+      - alternatives: psql-bin
 
 pg_stat_statements:
-  postgres_extension.present
+  postgres_extension.present:
+    - require:
+      - alternatives: psql-bin
