@@ -1,3 +1,27 @@
+{% set pgdg94_gpg_path = "/etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG-94" %}
+pgdg94-gpg:
+  file.managed:
+    - name: {{ pgdg94_gpg_path }}
+    - source: salt://th/jenkins/files/{{ pgdg94_gpg_path }}
+
+pgdg94:
+  pkgrepo.managed:
+    - humanname: PostgreSQL 9.4 $releasever - $basearch
+    - baseurl: http://yum.postgresql.org/9.4/redhat/rhel-$releasever-$basearch
+    - gpgcheck: 1
+    - gpgkey: file://{{ pgdg94_gpg_path }}
+    - require:
+      - file: pgdg94-gpg
+
+{# Included for completeness -- It ships disabled
+pgdg94-source:
+  pkgrepo.managed:
+    - humanname: PostgreSQL 9.4 $releasever - $basearch - Source
+    - baseurl: http://yum.postgresql.org/srpms/9.4/redhat/rhel-$releasever-$basearch
+    - gpgcheck: 1
+    - gpgkey: file://{{ pgdg94_gpg_path }}
+#}
+
 pg_hba:
   file.managed:
     - name: /var/lib/pgsql/data/pg_hba.conf
