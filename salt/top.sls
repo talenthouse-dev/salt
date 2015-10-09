@@ -10,3 +10,4 @@ base:
     - nginx
     - jenkins.nginx
     - jenkins.plugins
+    - th.jenkins

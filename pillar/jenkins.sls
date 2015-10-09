@@ -2,10 +2,12 @@ jenkins:
   lookup:
     user: jenkins
     group: jenkins
+    nginx_user: nginx
+    nginx_group: nginx
     pkgs:
-      - java-1.8.0-openjdk
+      - java-1.8.0-openjdk-devel
 
-    privkey: /root/jenkins
+    privkey: /var/lib/jenkins/.ssh/id_rsa
 # NOTE: localhost:8080 is OK, since this is used when running jenkins-cli on the box itself
     master_url: http://localhost:8080/
     plugins:
