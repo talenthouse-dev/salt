@@ -67,8 +67,17 @@ jenkins-postgres:
     - createdb: True
     - login: True
 
+pg-talenthouse:
   postgres_database.present:
     - name: talenthouse_test
+    - owner: jenkins
+    - owner_recurse: True
+    - require:
+      - postgres_user: jenkins
+
+pg-talenthouse-artfeed:
+  postgres_database.present:
+    - name: talenthouse_artfeed_test
     - owner: jenkins
     - owner_recurse: True
     - require:
