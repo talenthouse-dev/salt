@@ -18,6 +18,11 @@ elasticsearch:
     - require:
       - pkgrepo: elasticsearch
 
-  service.running:
+  cmd.wait:
+    - name: chkconfig --add elasticsearch
     - require:
       - pkg: elasticsearch
+
+  service.running:
+    - require:
+      - cmd: elasticsearch
