@@ -3,8 +3,9 @@
 include:
   - jenkins
   - th.jenkins.amqp
-  - th.jenkins.postgres
   - th.jenkins.elasticsearch
+  - th.jenkins.postgres
+  - th.jenkins.redis
 
 oldjava:
   pkg.purged:
