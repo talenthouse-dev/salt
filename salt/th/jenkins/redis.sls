@@ -16,6 +16,7 @@ remi:
 
 redis:
   pkg.installed:
+    - version: 3*
     - require:
       - pkgrepo: remi
 
