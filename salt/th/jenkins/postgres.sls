@@ -46,9 +46,9 @@ psql-bin:
     - path: /usr/pgsql-9.4/bin/psql
     - priority: 100
     - require:
-      - pkg: test-packages
+      - pkg: postgresql
 
-test-packages:
+postgresql:
   pkg.installed:
     - names:
       - postgresql94-server
@@ -56,10 +56,9 @@ test-packages:
     - require:
       - pkg: old-test-packages
   service.running:
-    - names:
-      - postgresql-9.4
+    - name: postgresql-9.4
     - require:
-      - pkg: test-packages
+      - pkg: postgresql
       - cmd: pg-initdb
       - file: pg_hba
     - watch:
