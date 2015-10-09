@@ -3,7 +3,7 @@
 include:
   - jenkins
   - th.jenkins.amqp
-  - th.jenkins.databases
+  - th.jenkins.postgres
   - th.jenkins.elasticsearch
 
 oldjava:
