@@ -2,8 +2,9 @@
 
 include:
   - jenkins
-  - th.jenkins.databases
   - th.jenkins.amqp
+  - th.jenkins.databases
+  - th.jenkins.elasticsearch
 
 oldjava:
   pkg.purged:
