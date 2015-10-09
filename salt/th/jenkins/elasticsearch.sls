@@ -26,3 +26,5 @@ elasticsearch:
   service.running:
     - require:
       - cmd: elasticsearch
+    - watch:
+      - pkg: elasticsearch

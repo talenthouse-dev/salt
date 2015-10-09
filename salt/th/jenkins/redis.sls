@@ -23,3 +23,5 @@ redis:
   service.running:
     - require:
       - pkg: redis
+    - watch:
+      - pkg: redis

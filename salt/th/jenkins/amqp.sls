@@ -3,3 +3,5 @@ rabbitmq-server:
   service.running:
     - require:
       - pkg: rabbitmq-server
+    - watch:
+      - pkg: rabbitmq-server
