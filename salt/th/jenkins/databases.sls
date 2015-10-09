@@ -1,3 +1,4 @@
+{% set pghome = "/var/lib/pgsql/9.4" %}
 {% set pgdg94_gpg_path = "/etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG-94" %}
 pgdg94-gpg:
   file.managed:
@@ -24,10 +25,12 @@ pgdg94-source:
 
 pg_hba:
   file.managed:
-    - name: /var/lib/pgsql/data/pg_hba.conf
+    - name: {{ pghome }}/data/pg_hba.conf
     - source: salt://th/jenkins/files/var/lib/pgsql/data/pg_hba.conf
     - user: postgres
     - group: postgres
+    - require:
+      - cmd: pg-initdb
 
 old-test-packages:
   pkg.purged:
@@ -51,10 +54,9 @@ test-packages:
       - file: pg_hba
 
 pg-initdb:
-  cmd.wait:
+  cmd.run:
+    - unless: test -d {{ pghome }}/data/base
     - name: service postgresql-9.4 initdb
-    - watch:
-      - pkg: test-packages
 
 jenkins-postgres:
   postgres_user.present:
