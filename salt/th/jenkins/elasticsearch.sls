@@ -5,7 +5,7 @@ es17-gpg:
     - name: {{ es17_gpg_path }}
     - source: salt://th/jenkins/files/{{ es17_gpg_path }}
 
-elasticsearch-1.7:
+elasticsearch:
   pkgrepo.managed:
     - humanname: Elasticsearch repository for 1.7.x packages
     - baseurl: http://packages.elastic.co/elasticsearch/1.7/centos
@@ -13,3 +13,11 @@ elasticsearch-1.7:
     - gpgkey: file://{{ es17_gpg_path }}
     - require:
       - file: es17-gpg
+
+  pkg.installed:
+    - require:
+      - pkgrepo: elasticsearch
+
+  service.running:
+    - require:
+      - pkg: elasticsearch
