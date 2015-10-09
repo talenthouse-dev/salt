@@ -78,6 +78,7 @@ jenkins-postgres:
     # Permissions
     - createdb: True
     - login: True
+    - superuser: True
     - require:
       - alternatives: psql-bin
 
@@ -101,10 +102,16 @@ pg-talenthouse-artfeed:
 
 uuid-ossp:
   postgres_extension.present:
+    - db_user: jenkins
+    - db_host: localhost
+    - maintenance_db: talenthouse_test
     - require:
       - alternatives: psql-bin
 
 pg_stat_statements:
   postgres_extension.present:
+    - db_user: jenkins
+    - db_host: localhost
+    - maintenance_db: talenthouse_test
     - require:
       - alternatives: psql-bin
