@@ -41,6 +41,7 @@ test-packages:
   pkg.installed:
     - names:
       - postgresql94-server
+      - postgresql94-contrib
     - require:
       - pkg: old-test-packages
   service.running:
@@ -82,3 +83,9 @@ pg-talenthouse-artfeed:
     - owner_recurse: True
     - require:
       - postgres_user: jenkins
+
+uuid-ossp:
+  postgres_extension.present
+
+pg_stat_statements:
+  postgres_extension.present
