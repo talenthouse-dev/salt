@@ -3,6 +3,7 @@
 include:
   - jenkins
   - th.jenkins.databases
+  - th.jenkins.amqp
 
 oldjava:
   pkg.purged:
