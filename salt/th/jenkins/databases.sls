@@ -29,13 +29,20 @@ pg_hba:
     - user: postgres
     - group: postgres
 
+old-test-packages:
+  pkg.purged:
+    - names:
+      - postgresql-server
+
 test-packages:
   pkg.installed:
     - names:
-      - postgresql-server
+      - postgresql94-server
+    - require:
+      - pkg: old-test-packages
   service.running:
     - names:
-      - postgresql
+      - postgresql-9.4
     - require:
       - pkg: test-packages
       - cmd: pg-initdb
@@ -45,7 +52,7 @@ test-packages:
 
 pg-initdb:
   cmd.wait:
-    - name: service postgresql initdb
+    - name: service postgresql-9.4 initdb
     - watch:
       - pkg: test-packages
 
