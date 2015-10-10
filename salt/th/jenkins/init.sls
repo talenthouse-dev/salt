@@ -5,6 +5,7 @@ include:
   - th.jenkins.amqp
   - th.jenkins.docker
   - th.jenkins.elasticsearch
+  - th.jenkins.node
   - th.jenkins.postgres
   - th.jenkins.redis
 
