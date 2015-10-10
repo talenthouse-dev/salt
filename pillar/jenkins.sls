@@ -33,6 +33,7 @@ jenkins:
     jobs:
       installed:
         TH-Master: /srv/extra/jenkins/jobs/TH-Master.xml
+        TH-Tasks: /srv/extra/jenkins/jobs/TH-Tasks.xml
 
   nginx:
     lookup:
