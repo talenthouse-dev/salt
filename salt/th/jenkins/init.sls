@@ -3,6 +3,7 @@
 include:
   - jenkins
   - th.jenkins.amqp
+  - th.jenkins.docker
   - th.jenkins.elasticsearch
   - th.jenkins.postgres
   - th.jenkins.redis
