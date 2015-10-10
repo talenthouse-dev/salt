@@ -30,6 +30,9 @@ jenkins:
         - subversion
         - translation
         - windows-slaves
+    jobs:
+      installed:
+        TH-Master: /srv/extra/jenkins/jobs/TH-Master.xml
 
   nginx:
     lookup:
