@@ -12,3 +12,4 @@ base:
     - jenkins.plugins
     - jenkins.jobs
     - th.jenkins
+    - sudoers
