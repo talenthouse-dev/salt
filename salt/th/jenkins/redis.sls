@@ -21,6 +21,7 @@ redis:
       - pkgrepo: remi
 
   service.running:
+    - enable: True
     - require:
       - pkg: redis
     - watch:

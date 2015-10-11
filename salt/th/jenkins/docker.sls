@@ -6,6 +6,7 @@ docker:
       - docker-io
       - python-docker-py
   service.running:
+    - enable: True
     - require:
       - pkg: docker
 

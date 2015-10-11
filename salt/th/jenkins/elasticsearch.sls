@@ -24,6 +24,7 @@ elasticsearch:
       - pkg: elasticsearch
 
   service.running:
+    - enable: True
     - require:
       - cmd: elasticsearch
     - watch:

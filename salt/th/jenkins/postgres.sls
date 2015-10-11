@@ -56,6 +56,7 @@ postgresql:
     - require:
       - pkg: old-test-packages
   service.running:
+    - enable: True
     - name: postgresql-9.4
     - require:
       - pkg: postgresql
