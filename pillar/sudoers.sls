@@ -7,7 +7,6 @@ sudoers:
       - 'ALL=(root) NOPASSWD: /usr/bin/docker'
   defaults:
     generic:
-      - requiretty
       - '!visiblepw'
       - always_set_home
       - env_reset
