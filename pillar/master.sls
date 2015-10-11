@@ -20,3 +20,4 @@ salt:
       - git://github.com/saltstack-formulas/nginx-formula
       - git://github.com/blast-hardcheese/salt-formula:
         - base: bugfix/178_master-configs-in-minion
+      - git://github.com/saltstack-formulas/sudoers-formula
