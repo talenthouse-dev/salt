@@ -17,6 +17,7 @@ jenkins:
         - envinject
         - git
         - github-oauth
+        - greenballs
         - nodejs
         - sbt
         - slack
