@@ -25,6 +25,7 @@ jenkins:
         - ant
         - cvs
         - javadoc
+        - ldap
         - maven-plugin
         - pam-auth
         - ssh-slaves
