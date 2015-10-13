@@ -3,7 +3,9 @@
 include:
   - jenkins
   - th.jenkins.amqp
+  - th.jenkins.docker
   - th.jenkins.elasticsearch
+  - th.jenkins.node
   - th.jenkins.postgres
   - th.jenkins.redis
 
@@ -26,3 +28,12 @@ sbt:
     - tar_options: z
     - user: jenkins
     - group: jenkins
+
+th-jenkins:
+  git.latest:
+    - name: git@github.com:talenthouse-dev/th-jenkins.git
+    - target: /srv/extra/jenkins
+    - user: root
+    - identity: /var/lib/jenkins/.ssh/id_rsa
+    # Workaround for saltstack/salt#27487
+    - force_reset: True

@@ -10,4 +10,6 @@ base:
     - nginx
     - jenkins.nginx
     - jenkins.plugins
+    - jenkins.jobs
     - th.jenkins
+    - sudoers

@@ -6,6 +6,7 @@ jenkins:
     nginx_group: nginx
     pkgs:
       - java-1.8.0-openjdk-devel
+    netcat_pkg: nc
 
     privkey: /var/lib/jenkins/.ssh/id_rsa
 # NOTE: localhost:8080 is OK, since this is used when running jenkins-cli on the box itself
@@ -16,6 +17,7 @@ jenkins:
         - envinject
         - git
         - github-oauth
+        - greenballs
         - nodejs
         - sbt
         - slack
@@ -24,12 +26,18 @@ jenkins:
         - ant
         - cvs
         - javadoc
+        - ldap
         - maven-plugin
         - pam-auth
         - ssh-slaves
         - subversion
         - translation
         - windows-slaves
+    jobs:
+      installed:
+        TH-Master: /srv/extra/jenkins/jobs/TH-Master.xml
+        TH-Tasks: /srv/extra/jenkins/jobs/TH-Tasks.xml
+        TH-Publish: /srv/extra/jenkins/jobs/TH-Publish.xml
 
   nginx:
     lookup:

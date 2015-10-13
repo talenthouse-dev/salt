@@ -4,3 +4,4 @@ base:
 
   'G@roles:build':
     - jenkins
+    - sudoers
