@@ -1,5 +1,7 @@
 #!/bin/bash
 
+root="$(basename "$0")"
+
 if [ -f /etc/redhat-release ] && grep "release 7\." /etc/redhat-release >/dev/null; then
     target=/tmp/SALTSTACK-GPG-KEY.pub
     curl -o "$target" https://repo.saltstack.com/yum/rhel7/SALTSTACK-GPG-KEY.pub
@@ -45,3 +47,11 @@ else
     echo "Unsupported distro" >&2
     exit 1
 fi
+
+target="/etc/salt/master"
+
+if [ -f "$target" ]; then
+    mv -v "$target" "${target}-packaged-$(date +%s)"
+fi
+
+cp -vf "$root/etc/salt/master" "$target"
