@@ -1,0 +1,9 @@
+fileserver_backend:
+  - roots
+  - git
+
+gitfs_provider: pygit2
+
+gitfs_remotes:
+  - git://github.com/blast-hardcheese/salt-formula:
+    - base: bugfix/178_master-configs-in-minion
