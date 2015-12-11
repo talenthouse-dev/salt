@@ -10,7 +10,8 @@ rabbitmq_rabbitmq-server:
     - sslverify: 1
 
 rabbitmq-server:
-  pkg.installed: []
+  pkg.installed:
+    - version: 3.4.4-1
   service.running:
     - enable: True
     - require:
