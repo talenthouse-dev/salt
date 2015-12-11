@@ -15,9 +15,8 @@ salt:
     gitfs_provider: pygit2
 
     gitfs_remotes:
-      - git://github.com/blast-hardcheese/jenkins-formula:
-        - base: jenkins_jobs
+      - git://github.com/saltstack-formulas/jenkins-formula
       - git://github.com/saltstack-formulas/nginx-formula
-      - git://github.com/blast-hardcheese/salt-formula:
-        - base: bugfix/178_master-configs-in-minion
+      - git://github.com/saltstack-formulas/salt-formula:
+        - base: a33937d9e85b577ac1e944a25ef9fe6fae770a47
       - git://github.com/saltstack-formulas/sudoers-formula

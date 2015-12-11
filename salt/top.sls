@@ -2,10 +2,12 @@ base:
   '*':
     - salt.minion
 
-  'G@roles:master':
+  'roles:master':
+    - match: grain
     - salt.master
 
-  'G@roles:build':
+  'roles:build':
+    - match: grain
     - jenkins
     - nginx
     - jenkins.nginx
