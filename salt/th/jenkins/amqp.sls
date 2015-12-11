@@ -1,20 +1,14 @@
+include:
+  - th.jenkins.docker
+
 rabbitmq_rabbitmq-server:
-  pkgrepo.managed:
-    - humanname: packagecloud RabbitMQ
-    - baseurl: https://packagecloud.io/rabbitmq/rabbitmq-server/el/6/$basearch
-    - enabled: 1
-    - gpgcheck: 0
-    - gpgkey: https://packagecloud.io/gpg.key
-    - repo_gpgcheck: 1
-    - sslcacert: /etc/pki/tls/certs/ca-bundle.crt
-    - sslverify: 1
+  pkgrepo.absent
 
 rabbitmq-server:
-  pkg.installed:
-    - version: 3.4.4-1
-  service.running:
-    - enable: True
+  pkg.purged: []
+  dockerng.running:
+    - image: 'rabbitmq:3.4.2'
+    - port_bindings:
+      - 5672:5672
     - require:
-      - pkg: rabbitmq-server
-    - watch:
-      - pkg: rabbitmq-server
+      - service: docker

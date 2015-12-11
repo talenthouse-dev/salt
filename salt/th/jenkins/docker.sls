@@ -1,10 +1,20 @@
 {% set slugbuilder_path = "/opt/th/slugbuilder" %}
 
+deprecated-deps:
+  pkg.purged:
+    - name: python-docker-py
+
 docker:
   pkg.installed:
     - names:
       - docker-io
-      - python-docker-py
+      - python-pip
+    - reload_modules: True
+  pip.installed:
+    - name: docker-py == 1.4.0
+    - require:
+      - pkg: docker
+    - reload_modules: True
   service.running:
     - enable: True
     - require:
