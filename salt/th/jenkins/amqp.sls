@@ -9,7 +9,7 @@ rabbitmq_rabbitmq-server:
 rabbitmq-image-present:
   cmd.run:
     - name: docker pull rabbitmq:3.4.2-management
-    - unless: docker images | grep rabbitmq:3.4.2-management
+    - unless: docker inspect rabbitmq:3.4.2-management
 
 rabbitmq-server:
   pkg.purged: []
