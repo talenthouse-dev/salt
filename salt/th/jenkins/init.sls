@@ -8,6 +8,7 @@ include:
   - th.jenkins.node
   - th.jenkins.postgres
   - th.jenkins.redis
+  - th.jenkins.timezone
 
 oldjava:
   pkg.purged:
