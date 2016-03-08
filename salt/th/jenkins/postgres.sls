@@ -8,7 +8,7 @@ pgdg94-gpg:
 pgdg94:
   pkgrepo.managed:
     - humanname: PostgreSQL 9.4 $releasever - $basearch
-    - baseurl: http://yum.postgresql.org/9.4/redhat/rhel-$releasever-$basearch
+    - baseurl: https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhel-$releasever-$basearch
     - gpgcheck: 1
     - gpgkey: file://{{ pgdg94_gpg_path }}
     - require:
