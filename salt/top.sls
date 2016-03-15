@@ -2,6 +2,10 @@ base:
   '*':
     - salt.minion
 
+  'roles:cron':
+    - match: grain
+    - th.cron
+
   'roles:master':
     - match: grain
     - salt.master
