@@ -20,6 +20,9 @@ oldjava:
     - require_in:
       - service: jenkins
 
+jq:
+  pkg.installed
+
 sbt:
   archive.extracted:
     - name: /var/lib/jenkins/.bin
