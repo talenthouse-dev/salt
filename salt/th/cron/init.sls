@@ -4,3 +4,16 @@ standup-reminder:
     - hour: 9
     - minute: 58
     - dayweek: 1,2,3,4,5
+
+/home/automate/newyears.sh:
+  file.managed:
+    - source: salt://th/cron/newyears.sh
+    - user: automate
+
+newyears:
+  cron.present:
+    - name: /bin/bash /home/automate/newyears.sh
+    - hour: 23
+    - minute: 59
+    - daymonth: 31
+    - month: 12
