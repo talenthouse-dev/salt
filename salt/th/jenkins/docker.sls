@@ -23,3 +23,7 @@ docker:
 slugbuilder:
   file.absent:
     - name: {{ slugbuilder_path }}
+
+slugbuilder-cache:
+  file.absent:
+    - name: /opt/th-public-cache
