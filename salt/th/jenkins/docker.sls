@@ -21,21 +21,9 @@ docker:
       - pkg: docker
 
 slugbuilder:
-  git.latest:
-    - name: https://github.com/talenthouse-dev/slugbuilder
-    - target: {{ slugbuilder_path }}
-    - user: root
-    # Workaround for saltstack/salt#27487
-    - force_reset: True
+  file.absent:
+    - name: {{ slugbuilder_path }}
 
-  cmd.wait:
-    - name: docker build -t th_dev/slugbuilder .
-    - cwd: {{ slugbuilder_path }}
-    - watch:
-      - git: slugbuilder
-
-{# Insufficient python-docker-py version
-  dockerng.image_present:
-    - name: th_dev/slugbuilder
-    - build: {{ slugbuilder_path }}
-#}
+slugbuilder-cache:
+  file.absent:
+    - name: /opt/th-public-cache
